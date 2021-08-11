@@ -15,7 +15,30 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Auto auto;
 
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
+
+    public User(int id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -32,5 +55,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
