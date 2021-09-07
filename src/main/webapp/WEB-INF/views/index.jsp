@@ -1,6 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <html>
+<head>
+    <title>start page</title>
+</head>
 <body>
-<h2>Hello World!</h2>
-<h1>test</h1>
+
+<p align="center">
+<a title="Information about the company" href="/info">
+
+</a>
+
+</p>
+
 </body>
 </html>
