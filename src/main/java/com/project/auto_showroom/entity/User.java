@@ -1,44 +1,77 @@
 package com.project.auto_showroom.entity;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.Objects;
 
 @Entity
-@Table(name ="users")
+@Table(name = "users")
 public class User {
-   @Id
-   @Column(name = "id")
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private long id;
 
-    @Column(name = "name")
-    private String username;
-
-    @Column(name = "login")
     private String login;
 
-
-    @Column(name = "password")
     private String password;
 
-   @ManyToOne
-   @JoinColumn(name = "solvency_id")
-   private Solvency solvency;
+    public User() {
 
-  /*  @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
-*/
+    }
 
+    public User(long id) {
+        this.id = id;
+    }
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinTable(name = "user_role",
-    joinColumns = {
-            @JoinColumn(name = "user_id")},
-            inverseJoinColumns = {
-            @JoinColumn(name = "role_id")})
-    private Set<Role> roles = new HashSet<>();
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof User)) {
+            return false;
+        }
+        User user = (User) o;
+        return  Objects.equals(login, user.login)
+                && Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(login, password);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("User id = %d, login = %s, password = %s", id, login, password);
+    }
 }

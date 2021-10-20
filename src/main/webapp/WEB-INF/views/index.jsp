@@ -8,10 +8,7 @@
 </head>
 <body>
 
-<p align="center">
-<a title="Information about the company" href="/info">
-
-</a>
+<p >1234
 
 </p>
 

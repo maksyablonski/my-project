@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class StartPageController {
-    @GetMapping("/")
+   /* @GetMapping("/")
     public String start() {
         return "main/mainpage";
-    }
+    }*/
 
     /*@GetMapping("/contacts")
     public String contacts() {
