@@ -1,10 +1,11 @@
 package com.project.auto_showroom.repository;
 
+import com.project.auto_showroom.entity.Car;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import ru.job4j.carprice.model.Car;
+
 
 import java.util.List;
 

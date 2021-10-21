@@ -1,11 +1,12 @@
 package com.project.auto_showroom.service;
 
+import com.project.auto_showroom.entity.CarBody;
+import com.project.auto_showroom.repository.CarBodyRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.job4j.carprice.model.CarBody;
-import ru.job4j.carprice.persistence.repository.CarBodyRepository;
+
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
