@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class TransmissionService {
     private final TransmissionRepository repository;
-    private final Logger logger = LogManager.getLogger(TransmissionService.class);
+    /*private final Logger logger = LogManager.getLogger(TransmissionService.class);*/
 
     @Autowired
     public TransmissionService(TransmissionRepository repository) {

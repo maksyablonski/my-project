@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class EngineService {
     private final EngineRepository repository;
-    private final Logger logger = LogManager.getLogger(EngineService.class);
+  /*  private final Logger logger = LogManager.getLogger(EngineService.class);*/
 
     @Autowired
     public EngineService(EngineRepository repository) {

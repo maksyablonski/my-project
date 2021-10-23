@@ -20,7 +20,7 @@ import java.util.List;
 
 @Service
 public class UserDetailService implements UserDetailsService {
-    private final Logger logger = LogManager.getLogger(UserDetailsService.class);
+    /*rivate final Logger logger = LogManager.getLogger(UserDetailsService.class);*/
     private UserRepository repository;
 
     @Autowired
@@ -30,14 +30,14 @@ public class UserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        logger.debug("Incoming login: {}", login);
+       /* logger.debug("Incoming login: {}", login);*/
         User user = this.repository.findByLogin(login);
-        logger.debug("Found user: {}", user.toString());
+       /* logger.debug("Found user: {}", user.toString());*/
         BCryptPasswordEncoder encoder = this.passwordEncoder();
         if (user != null) {
             List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            logger.debug("User found, login: {}", user.getLogin());
+            /*logger.debug("User found, login: {}", user.getLogin());*/
             return new org.springframework.security.core.userdetails.User(
                     user.getLogin(),
                     encoder.encode(user.getPassword()),

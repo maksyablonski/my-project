@@ -28,14 +28,12 @@ public class ImageController {
     public ImageController(@Value("${image.path}") String path) {
         this.path = path;
     }
-
     /**
      * Method for loading image to view.
      *
      * @param req  HttpServletRequest
      * @param resp HttpServletResponse
-     * @throws IOException
-     */
+     * @throws IOException*/
     @GetMapping(value = "/api/image/**")
     public void loadImage(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {

@@ -26,7 +26,7 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository repository;
-    private final Logger logger = LogManager.getLogger(UserService.class);
+    /*private final Logger logger = LogManager.getLogger(UserService.class);*/
 
 
     @Autowired
@@ -48,7 +48,7 @@ public class UserService {
         try {
             return this.repository.findByLogin(login);
         } catch (Exception e) {
-            logger.debug("Failed to find user with this login.", e);
+            /*logger.debug("Failed to find user with this login.", e);*/
             return null;
         }
     }
@@ -65,7 +65,7 @@ public class UserService {
         User found = this.repository.findByLogin(login);
         if (found != null && password.equals(found.getPassword())) {
             result = true;
-            logger.debug("User exist.");
+            /*logger.debug("User exist.");*/
         }
         return result;
     }
@@ -81,7 +81,7 @@ public class UserService {
         User found = this.repository.findByLogin(user.getLogin());
         if (found != null) {
             result = true;
-            logger.debug("User exist.");
+            /*logger.debug("User exist.");*/
         }
         return result;
     }

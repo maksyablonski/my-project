@@ -4,11 +4,8 @@ import com.project.auto_showroom.dto.CarDto;
 import com.project.auto_showroom.dto.FormDto;
 import com.project.auto_showroom.entity.*;
 import com.project.auto_showroom.service.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +32,8 @@ public class CarController {
     private final TransmissionService transmissionService;
     private final UserService userService;
     private final Random random = new Random();
-    private final Logger logger = LogManager.getLogger(CarController.class);
+
+    /*private final Logger logger = LogManager.getLogger(CarController.class);*/
     private final String path;
 
     @Autowired
@@ -45,13 +43,14 @@ public class CarController {
             EngineService engineService,
             TransmissionService transmissionService,
             UserService userService,
-            @Value("${image.path}") String path
-    ) {
+              @Value("${image.path}") String path)
+            {
         this.carService = carService;
         this.carBodyService = carBodyService;
         this.engineService = engineService;
         this.transmissionService = transmissionService;
         this.userService = userService;
+        /*this.path = path;*/
         this.path = path;
     }
 
@@ -74,23 +73,23 @@ public class CarController {
         HttpSession session = req.getSession();
         session.setAttribute("id", user.getId());
         session.setAttribute("login", user.getLogin());
-        logger.debug(
+        /*logger.debug(
                 "Session attributes: {}, {}",
                 session.getAttribute("id"),
                 session.getAttribute("login")
-        );
+        );*/
         List<Car> cars;
         if (action != null) {
             Action.Type actionType = Action.Type.valueOf(
                     action.toUpperCase()
             );
-            logger.debug("Action is: {}", actionType.toString());
+            /*logger.debug("Action is: {}", actionType.toString());*/
             cars = this.carService.init().action(actionType);
         } else {
-            logger.debug("Query: {}, type: {}", query, type);
+            /*logger.debug("Query: {}, type: {}", query, type);*/
             cars = this.carService.findCarByPart(query, type);
         }
-        logger.debug("Cars from client: {}", cars);
+        /*logger.debug("Cars from client: {}", cars);*/
         return cars;
     }
 
@@ -122,21 +121,21 @@ public class CarController {
                 out.write(buffer);
                 image = new Image();
                 image.setUrl(path);
-                logger.debug("Image with path: {}", image.getUrl());
+              //*  logger.debug("Image with path: {}", image.getUrl());*//*
             } catch (IOException e) {
-                logger.debug("IOException", e);
+                //*logger.debug("IOException", e);*//*
             }
         }
         long id = Long.parseLong(String.valueOf(session.getAttribute("id")));
-        logger.debug("Id session attribute: {}", session.getAttribute("id"));
+       //* logger.debug("Id session attribute: {}", session.getAttribute("id"));*//*
         User user = this.userService.findById(id);
-        logger.debug("Found user: {}", user.toString());
+        //*logger.debug("Found user: {}", user.toString());*//*
         CarBody body = this.carBodyService.findById(carDto.getBody());
-        logger.debug("Found body: {}", body.toString());
+        //*logger.debug("Found body: {}", body.toString());*//*
         Engine engine = this.engineService.findById(carDto.getEngine());
-        logger.debug("Found engine: {}", engine.toString());
+        //*logger.debug("Found engine: {}", engine.toString());*//*
         Transmission tr = this.transmissionService.findById(carDto.getTransmission());
-        logger.debug("Found tr: {}", tr.toString());
+        //*logger.debug("Found tr: {}", tr.toString());*//*
         car = new Car(
                 carDto.getName(),
                 carDto.getPrice(),
@@ -153,9 +152,9 @@ public class CarController {
         }
         car.setImage(image);
         this.carService.add(car);
-        logger.debug("User with login {} add new car",
-                session.getAttribute("login"));
-        logger.debug("Car from client: {}", car);
+       //* logger.debug("User with login {} add new car",*//*
+              //*  session.getAttribute("login"));*//*
+       //* logger.debug("Car from client: {}", car);*//*
         resp.sendRedirect("/");
     }
 
@@ -168,7 +167,7 @@ public class CarController {
     @GetMapping(value = "/api/body")
     public List<CarBody> getCarBodies() {
         List<CarBody> bodies = this.carBodyService.findAll();
-        logger.debug("Car bodies: {} ", bodies);
+    /*    logger.debug("Car bodies: {} ", bodies);*/
         return bodies;
     }
 
@@ -180,7 +179,7 @@ public class CarController {
     @GetMapping(value = "/api/engine")
     public List<Engine> getCarEngines() {
         List<Engine> engines = this.engineService.findAll();
-        logger.debug("Car engines: {}", engines);
+       /* logger.debug("Car engines: {}", engines);*/
         return engines;
     }
 
@@ -192,7 +191,7 @@ public class CarController {
     @GetMapping(value = "/api/transmission")
     public List<Transmission> getCarTransmissions() {
         List<Transmission> transmissions = this.transmissionService.findAll();
-        logger.debug("Car transmissions: {}", transmissions);
+      /*  logger.debug("Car transmissions: {}", transmissions);*/
         return transmissions;
     }
 
@@ -207,7 +206,7 @@ public class CarController {
      */
     @GetMapping(value = "/api/update")
     public Car getCarForUpdate(@RequestParam String id) {
-        logger.debug("Car id from client: {}", id);
+     /*   logger.debug("Car id from client: {}", id);*/
         Car car = new Car();
         car.setId(Long.parseLong(id));
         return this.carService.findById(car);
@@ -224,7 +223,7 @@ public class CarController {
     @PostMapping(value = "/api/update")
     public void updateCar(FormDto dto, HttpServletResponse resp)
             throws IOException {
-        logger.debug("Car id for update: {}", dto.getCarId());
+        /*logger.debug("Car id for update: {}", dto.getCarId());*/
         CarBody carBody = this.carBodyService.findById(dto.getBody());
         Engine carEngine = this.engineService.findById(dto.getEngine());
         Transmission tr = transmissionService.findById(dto.getTransmission());
@@ -244,7 +243,7 @@ public class CarController {
         found.setTransmission(tr);
         found.setDescription(dto.getDesc());
         this.carService.update(found);
-        logger.debug("Car updated: {}", found);
+        /*logger.debug("Car updated: {}", found);*/
         resp.sendRedirect("/");
     }
 }

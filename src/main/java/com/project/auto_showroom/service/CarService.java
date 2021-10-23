@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 public class CarService {
     private final CarRepository repository;
     private final Map<Action.Type, Supplier<List<Car>>> dispatch = new HashMap<>();
-    private final Logger logger = LogManager.getLogger(CarService.class);
+    /*private final Logger logger = LogManager.getLogger(CarService.class);*/
 
     @Autowired
     public CarService(CarRepository repository) {
@@ -31,17 +31,17 @@ public class CarService {
 
     public void add(Car car) {
         this.repository.save(car);
-       logger.debug("Added car: {}", car.toString());
+       /*logger.debug("Added car: {}", car.toString());*/
     }
 
     public void delete(Car car) {
         this.repository.delete(car);
-        logger.debug("Car with id={} deleted.", car.getId());
+       /* logger.debug("Car with id={} deleted.", car.getId());*/
     }
 
     public void update(Car car) {
         this.repository.save(car);
-        logger.debug("Car with id={} updated.", car.getId());
+        /*logger.debug("Car with id={} updated.", car.getId());*/
     }
 
     public Car findById(Car car) {
@@ -87,7 +87,7 @@ public class CarService {
             case ("findCarByTransmission"):
                 return this.findCarByTransmission(type);
             default:
-                logger.debug("Unsupported query: {}", query);
+                /*logger.debug("Unsupported query: {}", query);*/
                 return null;
         }
     }

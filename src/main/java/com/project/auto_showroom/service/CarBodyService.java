@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class CarBodyService {
     private final CarBodyRepository repository;
-    private final Logger logger = LogManager.getLogger(CarBodyService.class);
+    /*private final Logger logger = LogManager.getLogger(CarBodyService.class);*/
 
     @Autowired
     public CarBodyService(CarBodyRepository repository) {
