@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<%--
+  Created by IntelliJ IDEA.
+  User: MAKS
+  Date: 24.10.2021
+  Time: 16:54
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
@@ -15,7 +22,10 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <!--javascript functions-->
-    <script th:src="@{/js/login.js}"></script>
+    <script type="text/javascript">
+        <%@include file="/WEB-INF/js/login.js"%>
+    </script>
+
     <title>Login</title>
 </head>
 <body>
@@ -24,7 +34,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <form method='post' th:action="@{/login}">
+            <form method='post' action="/login">
                 <h3 class="text-center" id="warn"></h3>
                 <div class="form-group" id="login-group">
                     <label for="login">Login:</label>

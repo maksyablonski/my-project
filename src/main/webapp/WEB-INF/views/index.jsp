@@ -1,5 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<%--
+  Created by IntelliJ IDEA.
+  User: MAKS
+  Date: 24.10.2021
+  Time: 16:37
+  To change this t emplate use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
@@ -15,9 +24,13 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <!--javascript functions-->
-    <script th:src="@{/js/index.js}"></script>
-    <!--css css-->
-    <link th:href="@{/css/index.css}" rel="stylesheet">
+    <script type="text/javascript">
+        <%@include file="/WEB-INF/js/index.js"%>
+    </script>
+    <style>
+        <%@include file="/WEB-INF/css/index.css"%>
+    </style>
+
     <title>Car Price</title>
 </head>
 <body>

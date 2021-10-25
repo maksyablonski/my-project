@@ -50,7 +50,7 @@ public class CarController {
         this.engineService = engineService;
         this.transmissionService = transmissionService;
         this.userService = userService;
-        /*this.path = path;*/
+
         this.path = path;
     }
 

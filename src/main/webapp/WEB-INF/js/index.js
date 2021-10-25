@@ -1,3 +1,4 @@
+
 /**
  * Function execute when page loaded.
  */
@@ -123,7 +124,7 @@ function addCarsLikeDiv(data) {
         var query = "<input type='hidden' id='carId' value=" + data[i].id + ">"
             + "<input type='hidden' id='userId' value=" + data[i].user.id + ">"
             + "<input type='hidden' id='userLogin' value=" + data[i].user.login + ">"
-            + "<div class='col-md-2' id='imgForm'><img src=" + "/api/image/" + data[i].image.url.replace('/home/viktor/upload/images/', '') + " alt='No image' width='130'></div>"
+            + "<div class='col-md-2' id='imgForm'><img src=" + "/api/image/" + data[i].image.url.replace('C:/Users/MAKS/Desktop', '') + " alt='No image' width='130'></div>"
             + "<div class='col-md-1'><label>Model</label><br><span>" + data[i].name + "</span></div>"
             + "<div class='col-md-2'><label>Characteristic</label><br><span>Color: " + data[i].color + "</span><br>"
             + "<span>Body: " + data[i].body.type + "</span><br>"
@@ -183,7 +184,10 @@ function send() {
 function logout() {
     window.location.href = "api/logout";
 }
-
+/**
+ * Function for logout.
+ * Send request to LoginController.
+ */
 function getCarBodies() {
     var bodies = document.getElementById("body");
     $.ajax({

@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<%--
+  Created by IntelliJ IDEA.
+  User: MAKS
+  Date: 24.10.2021
+  Time: 22:54
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
@@ -14,9 +21,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!--javascript functions-->
-    <script th:src ="@{/js/add.js}"></script>
-    <script th:src ="@{/js/update.js}"></script>
-    <title>Update car</title>
+    <script type="text/javascript">
+        <%@include file="/WEB-INF/js/add.js"%>
+    </script>
+    <title>Add car</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -24,23 +32,22 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <h3 class="text-center" id = "warn"></h3>
-        <form id="myForm" method="post" th:action="@{/api/update}">
-            <input type="hidden" id="carId" name="carId" value="">
+        <form id="myForm" method="post" action="/api/cars" enctype="multipart/form-data">
             <div class="form-group" id="model-group">
                 <label for="name">Model:</label>
-                <input type="text" class="form-control" id="name" name="name" value="" placeholder="Model">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Model">
             </div>
             <div class="form-group" id="price-group">
                 <label for="price">Price:</label>
-                <input type="text" class="form-control" id="price" name="price" value="" placeholder="00.00">
+                <input type="text" class="form-control" id="price" name="price" placeholder="00.00">
             </div>
             <div class="form-group" id="color-group">
                 <label for="color">Color:</label>
-                <input type="text" class="form-control" id="color" name="color" value="" placeholder="Color">
+                <input type="text" class="form-control" id="color" name="color" placeholder="Color">
             </div>
             <div class="form-group" id="mileage-group">
                 <label for="mileage">Mileage:</label>
-                <input type="text" class="form-control" id="mileage" name="mileage" value="" placeholder="00">
+                <input type="text" class="form-control" id="mileage" name="mileage" placeholder="00">
             </div>
             <div class="form-group" id="body-group">
                 <label for="body">Car body: </label>
@@ -60,15 +67,16 @@
                     <!--Inserted dynamically-->
                 </select>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="sold" name="sold" value="sold">Sold</label>
-            </div>
             <div class="form-group" id="desc-group">
                 <label for="desc">Description:</label>
                 <textarea class="form-control" rows="5" name ="desc" id="desc"></textarea>
             </div>
+            <div class="form-group" id="image-group">
+                <label for="image">Choose images of your car:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="image" id="image">
+            </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-info" value="Update" onclick="return validate()">Update</button>
+                <button type="submit" class="btn btn-info" value="Add" onclick="return validate()">Add</button>
             </div>
         </form>
     </div>

@@ -1,14 +1,19 @@
 package com.project.auto_showroom.config;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
 @EnableWebMvc
+@ComponentScan(basePackages = {"com.project.auto_showroom.controller"})
 public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp");
+    }
+
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -26,9 +31,10 @@ public class WebConfig implements WebMvcConfigurer {
                 "/css/**",
                 "/js/**")
                 .addResourceLocations(
-                        "classpath:/META-INF/resources/webjars/",
-                        "classpath:/static/img/",
-                        "classpath:/static/css/",
-                        "classpath:/static/js/");
+                        /*"classpath:/META-INF/resources/webjars/",*/
+                        "classpath:/WEB-INF/img/",
+                        "classpath:/WEB-INF/css/",
+                        "classpath:/WEB-INF/js/");
     }
 }
+
