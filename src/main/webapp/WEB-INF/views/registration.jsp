@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MAKS
-  Date: 24.10.2021
-  Time: 17:49
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -21,9 +15,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
           crossorigin="anonymous"></script>
-  <!--javascript functions-->
+
   <script type="text/javascript">
-    <%@include file="/WEB-INF/js/login.js"%>
+    <%@include file="/WEB-INF/js/registration.js"%>
   </script>
   <title>User registration</title>
 </head>
@@ -33,7 +27,7 @@
   <div class="col-md-3"></div>
   <div class="col-md-6">
     <h3 class="text-center" id="warn"></h3>
-    <form method='post' id="regForm" action="/reg">
+    <form method='post' id="regForm" action="/api/reg">
       <div class="form-group" id="login-group">
         <label for="login">Login:</label>
         <input type='text' class="form-control" name='login' id="login" value=''><br>
@@ -50,10 +44,9 @@
         <button class="btn btn-info" id="submit" style="width: 100px" type="submit" onclick="return validate()">
           Registration
         </button>
-        <a href="/index">index</a>
+
       </div>
     </form>
-  </div>
 </div>
 </body>
 </html>

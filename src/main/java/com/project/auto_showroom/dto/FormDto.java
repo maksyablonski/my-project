@@ -10,10 +10,7 @@ public class FormDto {
     private String name;
     private String color;
     private String desc;
-    /**
-     * Default value for sold param if
-     * checkbox is not checked.
-     */
+
     private String sold = "on sale";
 
     public FormDto() {

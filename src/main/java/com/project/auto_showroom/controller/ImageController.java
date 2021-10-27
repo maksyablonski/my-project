@@ -17,9 +17,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-/**
- * Controller for loading image to client.
- */
+
 @RestController
 public class ImageController {
     private final Logger logger = LogManager.getLogger(ImageController.class);
@@ -28,12 +26,7 @@ public class ImageController {
     public ImageController(@Value("${image.path}") String path) {
         this.path = path;
     }
-    /**
-     * Method for loading image to view.
-     *
-     * @param req  HttpServletRequest
-     * @param resp HttpServletResponse
-     * @throws IOException*/
+
     @GetMapping(value = "/api/image/**")
     public void loadImage(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {

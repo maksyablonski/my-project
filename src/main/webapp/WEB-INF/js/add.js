@@ -10,12 +10,12 @@ $(document).ready(function () {
 
 /**
  * Function for getting array with CarBody objects
- * and setting parameters to the page.
+
  */
 function getCarBodies() {
     var bodies = document.getElementById("body");
     $.ajax({
-        url: "api/body",
+        url: "/body",
         type: "get",
         dataType: "json",
         success: function (data) {
@@ -30,14 +30,11 @@ function getCarBodies() {
     })
 }
 
-/**
- * Function for getting array with Engine objects
- * and setting parameters to the page.
- */
+
 function getCarEngines() {
     var engines = document.getElementById("engine");
     $.ajax({
-        url: "api/engine",
+        url: "/engine",
         type: "get",
         dataType: "json",
         success: function (data) {
@@ -59,7 +56,7 @@ function getCarEngines() {
 function getCarTransmissions() {
     var tr = document.getElementById("transmission");
     $.ajax({
-        url: "api/transmission",
+        url: "/transmission",
         type: "get",
         dataType: "json",
         success: function (data) {

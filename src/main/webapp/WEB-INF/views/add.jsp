@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MAKS
-  Date: 24.10.2021
-  Time: 22:54
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,7 +14,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!--javascript functions-->
+
     <script type="text/javascript">
         <%@include file="/WEB-INF/js/add.js"%>
     </script>
@@ -32,7 +26,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <h3 class="text-center" id = "warn"></h3>
-        <form id="myForm" method="post" action="/api/cars" enctype="multipart/form-data">
+        <form id="myForm" method="post" action="/cars" enctype="multipart/form-data">
             <div class="form-group" id="model-group">
                 <label for="name">Model:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Model">

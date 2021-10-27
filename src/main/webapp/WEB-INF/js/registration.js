@@ -1,6 +1,5 @@
 /**
  * Function for validate input fields.
- * @returns {boolean} true if validate, else false.
  */
 function validate() {
     var result = false;

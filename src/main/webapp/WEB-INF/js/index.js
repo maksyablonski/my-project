@@ -14,7 +14,7 @@ $(document).ready(function () {
  */
 function getCars() {
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "action=all",
         dataType: "json",
@@ -27,7 +27,7 @@ function getCars() {
 
 function showLastDay() {
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "action=last",
         dataType: "json",
@@ -40,7 +40,7 @@ function showLastDay() {
 
 function showWithImage() {
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "action=image",
         dataType: "json",
@@ -55,7 +55,7 @@ function getByBody() {
     var e = document.getElementById("body");
     var type = e.options[e.selectedIndex].text;
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "query=findCarByBody&type=" + type,
         dataType: "json",
@@ -70,7 +70,7 @@ function getByEngine() {
     var e = document.getElementById("engine");
     var type = e.options[e.selectedIndex].text;
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "query=findCarByEngine&type=" + type,
         dataType: "json",
@@ -85,7 +85,7 @@ function getByTr() {
     var e = document.getElementById("transmission");
     var type = e.options[e.selectedIndex].text;
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "query=findCarByTransmission&type=" + type,
         dataType: "json",
@@ -98,7 +98,7 @@ function getByTr() {
 
 function getRelevant() {
     $.ajax({
-        url: "api/cars",
+        url: "/cars",
         type: "get",
         data: "action=relevant",
         dataType: "json",
@@ -148,8 +148,6 @@ function addCarsLikeDiv(data) {
 
 /**
  * Function for setting sold parameter.
- * @param sold - boolean
- * @returns {string} 'sale' if sold = true, else 'on sale'.
  */
 function isSold(sold) {
     if (!sold) {
@@ -161,8 +159,6 @@ function isSold(sold) {
 
 /**
  * Function for getting car id for update.
- * Set id to sessionStorage and redirect to update.html page.
- * @param value car id stored in clicked field.
  */
 function update(value) {
     var carId = value;
@@ -179,19 +175,17 @@ function send() {
 
 /**
  * Function for logout.
- * Send request to LoginController.
  */
 function logout() {
-    window.location.href = "api/logout";
+    window.location.href = "/logout";
 }
 /**
  * Function for logout.
- * Send request to LoginController.
  */
 function getCarBodies() {
     var bodies = document.getElementById("body");
     $.ajax({
-        url: "api/body",
+        url: "/body",
         type: "get",
         dataType: "json",
         success: function (data) {
@@ -208,12 +202,11 @@ function getCarBodies() {
 
 /**
  * Function for getting array with Engine objects
- * and setting parameters to the page.
  */
 function getCarEngines() {
     var engines = document.getElementById("engine");
     $.ajax({
-        url: "api/engine",
+        url: "/engine",
         type: "get",
         dataType: "json",
         success: function (data) {
@@ -230,12 +223,11 @@ function getCarEngines() {
 
 /**
  * Function for getting array with Transmission objects
- * and setting parameters to the page.
  */
 function getCarTransmissions() {
     var tr = document.getElementById("transmission");
     $.ajax({
-        url: "api/transmission",
+        url: "/transmission",
         type: "get",
         dataType: "json",
         success: function (data) {

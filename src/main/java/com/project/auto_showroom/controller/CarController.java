@@ -21,9 +21,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Controller for Car and Car parts objects.
- */
+
 @RestController
 public class CarController {
     private final CarService carService;
@@ -54,16 +52,8 @@ public class CarController {
         this.path = path;
     }
 
-    /**
-     * Method for sending list of cars entities in json
-     * format to the view.
-     *
-     * @param action value of action in String format.
-     * @param query  value of NamedQuery in String format.
-     * @param type   value of type for NamedQuery in String format.
-     * @return list of car entities in jason format.
-     */
-    @GetMapping(value = "/api/cars")
+
+    @GetMapping(value = "/cars")
     public List<Car> getAllCars(@RequestParam(required = false) String action,
                                 @RequestParam(required = false) String query,
                                 @RequestParam(required = false) String type,
@@ -93,15 +83,8 @@ public class CarController {
         return cars;
     }
 
-    /**
-     * DONE
-     *
-     * @param file
-     * @param req
-     * @param resp
-     * @throws IOException
-     */
-    @PostMapping(value = "/api/cars")
+
+    @PostMapping(value = "/cars")
     public void addNewCar(@RequestParam(name = "image", required = false) MultipartFile file,
                           CarDto carDto,
                           HttpServletRequest req,
@@ -159,36 +142,24 @@ public class CarController {
     }
 
 
-    /**
-     * Method return CarBody entities in json format to view.
-     *
-     * @return List of CarBody entities in json format.
-     */
-    @GetMapping(value = "/api/body")
+
+    @GetMapping(value = "/body")
     public List<CarBody> getCarBodies() {
         List<CarBody> bodies = this.carBodyService.findAll();
     /*    logger.debug("Car bodies: {} ", bodies);*/
         return bodies;
     }
 
-    /**
-     * Method return Engine entities in json format to view.
-     *
-     * @return List of Engine entities in json format.
-     */
-    @GetMapping(value = "/api/engine")
+
+    @GetMapping(value = "/engine")
     public List<Engine> getCarEngines() {
         List<Engine> engines = this.engineService.findAll();
        /* logger.debug("Car engines: {}", engines);*/
         return engines;
     }
 
-    /**
-     * Method return Transmission entities in json format to view.
-     *
-     * @return List of Transmission entities in json format.
-     */
-    @GetMapping(value = "/api/transmission")
+
+    @GetMapping(value = "/transmission")
     public List<Transmission> getCarTransmissions() {
         List<Transmission> transmissions = this.transmissionService.findAll();
       /*  logger.debug("Car transmissions: {}", transmissions);*/
@@ -196,14 +167,7 @@ public class CarController {
     }
 
 
-    /**
-     * Method get id of car for update in request param,
-     * found car with this id in database and
-     * sent it to client in json format.
-     *
-     * @param id id of car for update.
-     * @return car in json format.
-     */
+
     @GetMapping(value = "/api/update")
     public Car getCarForUpdate(@RequestParam String id) {
      /*   logger.debug("Car id from client: {}", id);*/
@@ -212,14 +176,7 @@ public class CarController {
         return this.carService.findById(car);
     }
 
-    /**
-     * Method for update car params.
-     * Get request params from client and transfer it
-     * to FormDto object(POJO). After update redirect to
-     * index.html page.
-     *
-     * @throws IOException
-     */
+
     @PostMapping(value = "/api/update")
     public void updateCar(FormDto dto, HttpServletResponse resp)
             throws IOException {

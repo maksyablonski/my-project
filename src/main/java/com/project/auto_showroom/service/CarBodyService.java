@@ -25,25 +25,14 @@ public class CarBodyService {
         this.repository = repository;
     }
 
-    /**
-     * Method for finding CarBody object by id.
-     *
-     * @param id - id of object in database.
-     * @return CarBody object.
-     * @throws EntityNotFoundException if CarBody with this
-     *                                 id not found in database.
-     */
+
     public CarBody findById(long id) {
         return this.repository
                 .findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(String.valueOf(id)));
     }
 
-    /**
-     * Method for finding all CarBody objects from database.
-     *
-     * @return List of objects or null if not persist.
-     */
+
     public List<CarBody> findAll() {
         return (List<CarBody>) this.repository.findAll();
     }

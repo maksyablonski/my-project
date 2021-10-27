@@ -14,10 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-/**
- * Class for service methods with Car object.
- * Singleton by default.
- */
+
 @Service
 public class CarService {
     private final CarRepository repository;
@@ -51,7 +48,7 @@ public class CarService {
     }
 
     private List<Car> findAll() {
-        return (List<Car>) this.repository.findAll();
+        return  this.repository.findAll();
     }
 
     private List<Car> findCarWithImage() {

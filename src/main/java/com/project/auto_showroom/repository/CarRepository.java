@@ -29,4 +29,7 @@ public interface CarRepository extends CrudRepository<Car, Long> {
 
     @Query("SELECT c FROM Car c WHERE c.sold = false")
     List<Car> findRelevant();
+
+    @Query("SELECT c FROM Car c ")
+    List<Car> findAll();
 }

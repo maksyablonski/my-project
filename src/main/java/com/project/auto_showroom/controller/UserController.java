@@ -16,30 +16,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Controller for creating, login and logout users.
- */
+
 @RestController
 public class UserController {
     private final UserService userService;
-    /*private final Logger logger = LogManager.getLogger(UserController.class);*/
+    private final Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    /**
-     * Method for registration new user in application.
-     *
-     * @param req      HttpServletRequest
-     * @param resp     HttpServletResponse
-     * @param login    user login
-     * @param password user password
-     * @param confirm  confirmed password.
-     * @throws IOException
-     */
-    @PostMapping(value = "/api/reg")
+
+    @PostMapping(value = "api/reg")
     public void regNewUser(HttpServletRequest req,
                            HttpServletResponse resp,
                            @RequestParam String login,
@@ -59,19 +48,11 @@ public class UserController {
                 resp.sendRedirect("/registration");
             }
         } else {
-            /*logger.error("Password does not match!");*/
+            logger.error("Password does not match!");
         }
     }
 
-    /**
-     * Method invalidate current session and
-     * redirect to login.html page.
-     *
-     * @param req  HttpServletRequest
-     * @param resp HttpServletResponse
-     * @throws IOException
-     */
-    @GetMapping(value = "/api/logout")
+    @GetMapping(value = "/logout")
     public void logout(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         HttpSession session = req.getSession();

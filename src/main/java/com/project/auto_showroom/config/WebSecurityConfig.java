@@ -11,10 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
-/**
- * Configuration of security.
- * СONFIGURE IT!!!
- */
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -22,24 +19,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserRepository repository;
 
-    /**
-     * Authorisation from USERS table
-     * in database.
-     *
-     * @param auth AuthenticationManagerBuilder
-     * @throws Exception
-     */
+
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new UserDetailService(repository));
     }
 
-    /**
-     * Configure filter for authorisation.
-     *
-     * @param http HttpSecurity
-     * @throws Exception
-     */
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -56,20 +43,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-    @Override
-    public void configure(WebSecurity web) {
-        web
-                .ignoring()
-                .antMatchers(
-                        "/static/**",
-                        "/js/*",
-                        "/css/*",
-                        "/images/*",
-                        "/api/logout",
-                        "/api/login",
-                        "/api/reg",
-                        "/registration"
-                );
 
-    }
 }
