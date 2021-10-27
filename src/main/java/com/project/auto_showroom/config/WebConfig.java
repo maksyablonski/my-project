@@ -24,16 +24,5 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/registration").setViewName("registration");
     }
 
-    /*@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(
-                "/css/**",
-                "/js/**")
-                .addResourceLocations(
-                        *//*"classpath:/META-INF/resources/webjars/",*//*
-                        "classpath:/WEB-INF/img/",
-                        "classpath:/WEB-INF/css/",
-                        "classpath:/WEB-INF/js/");
-    }*/
 }
 

@@ -51,7 +51,6 @@ function getCarEngines() {
 
 /**
  * Function for getting array with Transmission objects
- * and setting parameters to the page.
  */
 function getCarTransmissions() {
     var tr = document.getElementById("transmission");
@@ -71,10 +70,7 @@ function getCarTransmissions() {
     })
 }
 
-/**
- * Function for setting car id parameter to hidden
- * input field.
- */
+
 function getCarId() {
     var carId = document.getElementById("carId");
     carId.value = sessionStorage.getItem("carId");
@@ -82,7 +78,6 @@ function getCarId() {
 
 /**
  * Function for validating input forms.
- * @returns {boolean} true or false.
  */
 function validate() {
     var result = false;

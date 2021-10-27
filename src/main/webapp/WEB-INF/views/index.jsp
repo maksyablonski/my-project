@@ -1,7 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
     <title>Car Price</title>
 </head>
 <body>
-<!--Sidebar-->
+
 <div class="sidenav">
     <div id="btns" class="btn-group-vertical">
         <button type="button" id="addBtn" class="btn btn-info" onclick="send()">Add car</button>
@@ -42,27 +42,27 @@
         <div class="form-group text-center" id="body-group">
             <label for="body">Car body: </label>
             <select class="custom-select mr-sm-2" name="body" id="body">
-                <!--Inserted dynamically-->
+
             </select>
             <button type="button" id="byBody" class="btn btn-info" onclick="getByBody()">Show by body</button>
         </div>
         <div class="form-group text-center" id="engine-group">
             <label for="engine">Engine: </label>
             <select class="custom-select mr-sm-2" name="engine" id="engine">
-                <!--Inserted dynamically-->
+
             </select>
             <button type="button" id="byEngine" class="btn btn-info" onclick="getByEngine()">Show by engine</button>
         </div>
         <div class="form-group text-center" id="transmission-group">
             <label for="transmission">Transmission: </label>
             <select class="custom-select mr-sm-2" name="transmission" id="transmission">
-                <!--Inserted dynamically-->
+
             </select>
             <button type="button" id="byTr" class="btn btn-info" onclick="getByTr()">Show by transmission</button>
         </div>
     </form>
 </div>
-<!--Main content-->
+
 <div class="container-fluid">
     <br><br>
     <h3 class="text-center">Orders</h3>
@@ -70,7 +70,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="container" id="main-div">
-            <!--Insert content dynamically-->
+
         </div>
     </div>
 </div>

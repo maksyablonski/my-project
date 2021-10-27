@@ -19,10 +19,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class for service methods with User objects.
- * Singleton by default.
- */
+
 @Service
 public class UserService {
     private final UserRepository repository;

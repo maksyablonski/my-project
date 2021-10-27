@@ -1,5 +1,6 @@
 /**
  * Function for validate input fields.
+
  */
 function validate() {
     var result = false;

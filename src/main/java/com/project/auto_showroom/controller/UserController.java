@@ -28,7 +28,7 @@ public class UserController {
     }
 
 
-    @PostMapping(value = "api/reg")
+    @PostMapping(value = "/api/reg")
     public void regNewUser(HttpServletRequest req,
                            HttpServletResponse resp,
                            @RequestParam String login,

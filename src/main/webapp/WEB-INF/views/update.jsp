@@ -51,19 +51,19 @@
             <div class="form-group" id="body-group">
                 <label for="body">Car body: </label>
                 <select class="custom-select mr-sm-2" name="body" id="body">
-                    <!--Inserted dynamically-->
+
                 </select>
             </div>
             <div class="form-group" id="engine-group">
                 <label for="engine">Engine: </label>
                 <select class="custom-select mr-sm-2" name="engine" id="engine">
-                    <!--Inserted dynamically-->
+
                 </select>
             </div>
             <div class="form-group" id="transmission-group">
                 <label for="transmission">Transmission: </label>
                 <select class="custom-select mr-sm-2" name="transmission" id="transmission">
-                    <!--Inserted dynamically-->
+
                 </select>
             </div>
             <div class="checkbox">

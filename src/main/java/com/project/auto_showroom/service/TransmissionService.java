@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-/**
- * Class for service methods with Transmission objects.
- * Singleton by default.
- */
+
 @Service
 public class TransmissionService {
     private final TransmissionRepository repository;

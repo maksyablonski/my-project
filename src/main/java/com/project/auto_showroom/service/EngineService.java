@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-/**
- * Class for service methods with Engine objects.
- * Singleton by default.
- */
+
 @Service
 public class EngineService {
     private final EngineRepository repository;

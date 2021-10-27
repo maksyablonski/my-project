@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 /**
  * Function for getting parameters of car for update.
- * Parameters setting to input fields in update.html page.
+
  */
 function getCarParameters() {
     var id = document.getElementById("carId").value;
